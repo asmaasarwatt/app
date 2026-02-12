@@ -12,7 +12,8 @@ import {
 import Image from 'next/image'
 // import logout from '../../_components/Navbar/navbar'
 import Link from "next/link"
-export function DropdownMenuBasic({logout}) {
+
+export function DropdownMenuBasic({logout}:{logout: () => void;}){
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -27,7 +28,7 @@ export function DropdownMenuBasic({logout}) {
           <DropdownMenuItem>
             <span className="cursor-pointer" onClick={logout}>Logout</span>
           </DropdownMenuItem>
-
+            
         </DropdownMenuGroup>
       
       </DropdownMenuContent>
