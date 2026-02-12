@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
 import { getToken } from "next-auth/jwt"
-import { process } from "zod/v4/core"
 const protectedPages =['/cart', '/profile' , 'wishlist']
 const authPages =['/login', '/register']
 export async function middleware(req:NextRequest){
