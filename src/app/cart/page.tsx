@@ -10,6 +10,7 @@ import Image from 'next/image'
 import { clearCart } from '@/services/cart/clear-cart'
 import cartImg from '../../assets/cart.png'
 import Link from 'next/link'
+import Wishlist from '../wishlist/page'
 export default function Cart() {
     const queryClient = useQueryClient()
  const{data:cartData , isLoading , isError} = useQuery<CartResponse>({
