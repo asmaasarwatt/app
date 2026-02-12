@@ -54,3 +54,9 @@ export interface Brand {
   slug: string
   image: string
 }
+
+export type shipping = {
+    details: string,
+    phone: string,
+    city: string
+}

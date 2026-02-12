@@ -9,6 +9,7 @@ import { Button  } from '@/components/ui/button'
 import Image from 'next/image'
 import { clearCart } from '@/services/cart/clear-cart'
 import cartImg from '../../assets/cart.png'
+import Link from 'next/link'
 export default function Cart() {
     const queryClient = useQueryClient()
  const{data:cartData , isLoading , isError} = useQuery<CartResponse>({
@@ -134,7 +135,9 @@ const {mutate:removeCart , data } = useMutation({
   <div className="border p-4">
     <h2 className='text-xl my-4'>Num of cart items <span className='text-xl text-green-400'></span>{cartData?.numOfCartItems}</h2>
     <h2 className='text-xl ' >Total Price <span className='text-xl text-green-400'></span> {cartData?.data.totalCartPrice}  EGP </h2>
-   <Button className='my-4'>Check Out</Button>
+   {/* <Button className='my-4'><Link href={`/checkout/${cartData?.cartId}`}></Link>Check Out</Button> */}
+   <Link href={`/checkout/${cartData?.cartId}`}><Button className='my-4'>Check Out</Button></Link>
+   
   </div>
   </div>
 </div> : <Image className='m-auto mt-9' src={cartImg} alt='cart'  width={400} height={400}/> }
