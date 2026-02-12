@@ -2,7 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useState } from 'react'
-import logo from '../../../assets/freshcart-logo.49f1b44d.svg'
+import logo1 from '../../../assets/freshcart-logo.49f1b44d.svg'
 import Image from 'next/image'
 import { signOut, useSession } from 'next-auth/react'
 import { DropdownMenuBasic } from '../DropDown/DropDown'
@@ -47,18 +47,19 @@ function logout(){
 <nav className="bg-gray-200 py-2">
   <div className="max-w-screen-xl flex flex-wrap md:flex-nowrap md:gap-16 items-center justify-between mx-auto p-4 ml-35">
     <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
-      <Image quality={40} width={200} height={300} src={logo} alt="logo" />
+      <Image quality={40} width={200} height={300} src={logo1} alt="logo" />
     </a>
     <button onClick={toggleNav} data-collapse-toggle="navbar-default" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
-      <span className="sr-only">Open ma</span>
+      <span className="sr-only">Open main menu</span>
       <svg className="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width={24} height={24} fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeWidth={2} d="M5 7h14M5 12h14M5 17h14" /></svg>
     </button>
     <div className={` ${!isOpen &&  'hidden'}  w-full md:flex justify-between`} id="navbar-default">
       <ul className="font-medium flex flex-col p-4 md:p-0  rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
         {path.map((elem)=>{return   <li key={elem.content}>
-          <Link href={elem.href} className="block py-2 px-3 text-heading bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">{elem.content}</Link>
-        </li>       })}
-      </ul>
+          <Link href={elem.href} className={`block py-2 px-3 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${path===elem.href?'active':''}`} 
+    aria-current="page">{elem.content}</Link>
+        </li>   })}
+        </ul>
       <ul className="font-medium flex justify-center items-center flex-col p-4 md:p-0 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
         {/* {     })} */}
         {status == 'authenticated' ? <>
