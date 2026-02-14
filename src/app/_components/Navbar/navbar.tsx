@@ -8,7 +8,8 @@ import { signOut, useSession } from 'next-auth/react'
 import { DropdownMenuBasic } from '../DropDown/DropDown'
 import { CartResponse } from '@/types/cart-response'
 import { useQuery } from '@tanstack/react-query'
-
+import CategoryDropDown   from '../CategoryDropDown/categoryDropDown'
+import { usePathname } from 'next/navigation'
 export default function Navbar() {
   const{data:cartData , isLoading , isError} = useQuery<CartResponse>({
     queryKey:['get-cart'] ,
@@ -34,6 +35,7 @@ function logout(){
     {href:'/' , content :'Home'},
     {href:'/products' , content :'Products'},
     {href:'/brands' , content :'Brands'},
+    // {href:'/Categories' , content :'Categories'},
 
   ]
   const authPath=[
@@ -41,6 +43,7 @@ function logout(){
     {href:'/register' , content :'Register'},
    
   ]
+   const pathofTap = usePathname();
   return (
     <>
     
@@ -56,9 +59,16 @@ function logout(){
     <div className={` ${!isOpen &&  'hidden'}  w-full md:flex justify-between`} id="navbar-default">
       <ul className="font-medium flex flex-col p-4 md:p-0  rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
         {path.map((elem)=>{return   <li key={elem.content}>
-          <Link href={elem.href} className={`block py-2 px-3 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${path===elem.href?'active':''}`} 
+          <Link href={elem.href}  className={`block py-2 px-3 bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0 ${pathofTap===elem.href?'active':''}`} 
     aria-current="page">{elem.content}</Link>
-        </li>   })}
+    
+
+    </li>
+  })}
+  <li>
+  <CategoryDropDown />
+</li>
+ 
         </ul>
       <ul className="font-medium flex justify-center items-center flex-col p-4 md:p-0 rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
         {/* {     })} */}

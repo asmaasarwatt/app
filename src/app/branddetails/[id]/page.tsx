@@ -35,7 +35,7 @@ const prodRes= await fetch(`https://ecommerce.routemisr.com/api/v1/products?bran
   return (
     <>
   <div className="grid md:grid-cols-3 mt-5 lg:grid-cols-4 xl:grid-cols-5 gap-5">
-    {products?.map((prod)=><ProductCard key={prod._id} prod={prod}/>)}
+    {products?.map((prod:any)=><ProductCard key={prod._id} prod={prod}/>)}
    </div>
 
 

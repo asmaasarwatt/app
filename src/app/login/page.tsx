@@ -11,7 +11,7 @@ import { loginSchema } from '@/schema/loginSchema';
 import { signIn } from 'next-auth/react';
 import   toast  from 'react-hot-toast';
 import { useSearchParams } from 'next/navigation';
-
+import Link from 'next/link';
 export default function Login() {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callback-url')
@@ -89,7 +89,8 @@ export default function Login() {
   )}
 />
      </div>
- 
+          <Link className='text-green-600 text-sm ml-3' href={'/forgetpassword'}>Forgot Password!</Link>
+
     
          <Button disabled={isLoading} type='submit' className="my-5 w-full">
           {isLoading? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6 animate-spin">
