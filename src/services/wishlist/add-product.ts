@@ -18,8 +18,12 @@ if(!token){
         body:JSON.stringify({
             productId
         })
+    
     })
+     
     const payload = await resp.json()
     console.log(payload)
     return payload
+ 
+    
 }
