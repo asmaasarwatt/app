@@ -55,7 +55,7 @@ export default async function CategoryDetails({
 
   // get category info
   const response = await fetch(
-    `https://ecommerce.routemisr.com/api/v1/categories/${id}`
+    `https://ecommerce.routemisr.com/api/v1/products?category[in]/${id}`
   )
 
   const { data: category } = await response.json()
